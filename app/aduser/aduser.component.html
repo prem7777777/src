@@ -1,0 +1,95 @@
+<body>
+    <div class="mt-5">
+        <button class="btn btn btn-dark" onclick="history.back()" style="margin-left: 1%; margin-top:1%;margin-bottom:1%">Go Back</button>&nbsp;&nbsp;&nbsp;
+        <!-- <button class="btn btn-danger" routerLink="/Admin">Log Out</button>     -->
+        <table class="table table-hover">
+            <thead class="thead">
+                <tr>
+                    <th>User Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Mobile No.</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Pincode</th>
+                    <th>Email </th>
+                    <th> </th>
+
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let user of userDetails" class="table-info">
+                    <td class="table-info">{{ user.uid }}</td>
+                    <td class="table-info">{{ user.fname }}</td>
+                    <td class="table-info">{{ user.lname }}</td>
+                    <td class="table-info">{{ user.mobile }}</td>
+                    <td class="table-info">{{ user.gender }}</td>
+                    <td class="table-info">{{ user.address }}</td>
+                    <td class="table-info">{{ user.city }}</td>
+                    <td class="table-info">{{ user.pincode }}</td>
+                    <td class="table-info">{{ user.email }}</td>
+
+                    <td>
+                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Update(user)">
+              Edit
+            </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="Delete(user)">
+              Delete
+            </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/action_page.php">
+                        <div class="container">
+                            <h1>Update</h1>
+                            <p>Please fill in the information that needs to be updated</p>
+                            <hr />
+                            <label for="uid"><b>User ID</b></label>
+                            <input type="text" disabled placeholder="Update User ID" name="uid" id="uid" required [(ngModel)]="UserToUpdate.uid" />
+                            <label for="fname"><b>First Name</b></label>
+                            <input type="text" placeholder="Update User First Name" name="fname" id="fname" required [(ngModel)]="UserToUpdate.fname" />
+                            <label for="lname"><b>Last Name</b></label>
+                            <input type="text" placeholder="Update User Last Name" name="lname" id="lname" required [(ngModel)]="UserToUpdate.lname" />
+                            <label for="mobile"><b>Mobile Number</b></label>
+                            <input type="text" placeholder="Update User Mobile Number" name="mobile" id="mobile" required [(ngModel)]="UserToUpdate.mobile" />
+                            <label for="gender"><b>Gender</b></label>
+                            <input type="text" placeholder="Update User Gender" name="gender" id="gender" required [(ngModel)]="UserToUpdate.gender" />
+                            <label for="address"><b>Address</b></label>
+                            <input type="text" placeholder="Update User Address" name="address" id="address" required [(ngModel)]="UserToUpdate.address" />
+                            <label for="city"><b>City</b></label>
+                            <input type="text" placeholder="Update User City" name="city" id="city" required [(ngModel)]="UserToUpdate.city" />
+                            <label for="pincode"><b>Pincode</b></label>
+                            <input type="text" placeholder="Update User Pincode" name="pincode" id="pincode" required [(ngModel)]="UserToUpdate.pincode" />
+
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Update Email" name="email" id="email" required [(ngModel)]="UserToUpdate.email" />
+
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Update Password" name="psw" id="psw" required [(ngModel)]="UserToUpdate.password" />
+
+                            <hr />
+
+                            <button type="submit" class="registerbtn" (click)="UpdateUser()">
+                Update
+              </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body> -->

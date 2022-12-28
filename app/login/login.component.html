@@ -1,0 +1,100 @@
+<!-- <link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<!------ Include the above in your HEAD tag ---------->
+<!-- <body>
+  <div class="wrapper fadeInDown">
+    <div id="formContent"> -->
+<!-- Tabs Titles -->
+<!-- <h1>User Login</h1> -->
+<!-- Icon -->
+<!-- <div class="fadeIn first">
+        <img src="../../assets/L.png" id="icon" alt="User Icon" />
+      </div> -->
+
+<!-- Login Form -->
+<!-- <form>
+        <input
+          type="text"
+          id="email"
+          class="fadeIn second"
+          name="login"
+          placeholder="Email"
+          [(ngModel)]="LoginIDPwd.Email"
+        />
+        <input
+          type="password"
+          id="password"
+          class="fadeIn third"
+          name="login"
+          placeholder="Password"
+          [(ngModel)]="LoginIDPwd.Password"
+        />
+        <input
+          type="submit"
+          class="fadeIn fourth"
+          value="Log In"
+          (click)="AdminLogin()"
+        />
+        <br />
+        <a href="" routerLink="/Registration">Register Now</a> -->
+
+<!-- <input type="text" id="name" class="form-control" formControlName="name" required> <div *ngIf="Email.invalid && (name.dirty || name.touched)" class="alert alert-danger"></div> -->
+<!-- </form>
+    </div>
+  </div>
+</body> -->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <h1>User Login</h1>
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="../../assets/UserLoginlogo.jpg" id="icon" alt="User Icon" />
+            </div>
+
+            <!-- Login Form -->
+            <form [formGroup]="LoginForm">
+                <input type="text" id="email" name="login" placeholder="Email" formControlName="email" />
+                <div class="text-danger" *ngIf="LoginForm.get('email').invalid && LoginForm.get('email').touched">
+                    Enter correct email
+                </div>
+                <!-- 
+                <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" formControlName="password" />
+                <div class="text-danger" *ngIf="
+            LoginForm.get('password').invalid &&
+            LoginForm.get('password').touched
+          ">
+                    Enter Password
+                </div> -->
+
+                <input [type]="password" id="password" formControlName="password" class="fadeIn third" name="login" placeholder="Password" />
+                <button (click)="onClick()">
+              
+                     <i class="fa fa-eye" aria-hidden="true" *ngIf="!show"></i>
+                    <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show"></i> </button>
+                <div class="text-danger" *ngIf="LoginForm.get('password').invalid && LoginForm.get('password').touched">
+                    Enter Password
+                </div>
+
+
+
+
+                <input type="submit" value="Log In" (click)="UserLogin()" />
+                <button routerLink="/Home">Go Back</button>
+                <!-- <input type="text" id="name" class="form-control" formControlName="name" required> <div *ngIf="Email.invalid && (name.dirty || name.touched)" class="alert alert-danger"></div> -->
+            </form>
+        </div>
+    </div>
+</body>

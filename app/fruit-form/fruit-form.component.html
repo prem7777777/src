@@ -1,0 +1,137 @@
+<body>
+    <div class="formAdd">
+        <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="hidden" name="id" [value]="fruiService.fruitData.id">
+
+
+                        <label for="name" class="float-left">Title</label>
+                        <div *ngIf="title.invalid && (title.touched || title.dirty)" class="float-right">
+                            <p class="text-danger">Required</p>
+                        </div>
+                        <input type="text" name="title" class="form-control" placeholder="Enter Fruit Name" #title="ngModel" [(ngModel)]="fruiService.fruitData.title" required>
+                    </div>
+
+
+
+
+                    <div class="col-md-3">
+                        <label for="name" class="float-left">Price</label>
+                        <div *ngIf="price.invalid && (price.touched || price.dirty)" class="float-right">
+                            <p class="text-danger">Required</p>
+                        </div>
+                        <input type="number" name="price" class="form-control" placeholder="Enter Price" #price="ngModel" [(ngModel)]="fruiService.fruitData.price" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="quantity" class="label float-left">Quantity</label>
+                        <div *ngIf="quantity.invalid && (quantity.touched || quantity.dirty)" class="float-right">
+                            <p class="text-danger">Required</p>
+                        </div>
+                        <input type="number" name="quantity" class="form-control" placeholder="Enter Quantity" #quantity="ngModel" [(ngModel)]="fruiService.fruitData.quantity" required>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-2">
+                        <button type="submit" [disabled]="quantity.value===0" class="btn btn-success btn-block">Save</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="reset" class="btn btn-danger btn-block">Cancel</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+    <div class="mt-5">
+        <button class="btn btn btn-dark" style="margin-left:1%;" onclick="history.back()">Go Back</button>&nbsp;&nbsp;&nbsp;
+        <!-- <button class="btn btn-danger" routerLink="/Admin">Log Out</button>     -->
+        <table class="table table-hover">
+            <thead class="thead">
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <!-- <th>Image</th>               -->
+                    <th colspan="2" style="text-align: center">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let fruit of fruitsDetails" class="table-info">
+                    <td class="table-info">{{ fruit.id }}</td>
+                    <td class="table-info">{{ fruit.title }}</td>
+                    <td class="table-info">{{ fruit.price }}</td>
+                    <td class="table-info">{{ fruit.quantity }}</td>
+                    <!-- <td class="table-info">{{ fruit.image }}</td>              -->
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Update(fruit)">
+                  Edit
+                </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="Delete(fruit)">
+                  Delete
+                </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Fruit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/action_page.php">
+                        <div class="container">
+                            <h1>Update</h1>
+                            <p>Please fill in the information that needs to be updated</p>
+                            <hr />
+                            <label for="id"><b>ID</b></label>
+                            <input type="text" disabled placeholder="Update Fruit ID" name="id" id="id" required [(ngModel)]="FruitsToUpdate.id" />
+                            <label for="title"><b>Title</b></label>
+                            <input type="text" placeholder="Update Fruit Name" name="title" id="title" required [(ngModel)]="FruitsToUpdate.title" />
+                            <label for="price"><b>Price</b></label>
+                            <input type="text" placeholder="Update Price" name="price" id="price" required [(ngModel)]="FruitsToUpdate.price" />
+                            <label for="quantity"><b>Quantity</b></label>
+                            <input type="text" placeholder="Update Quantity" name="quantity" id="quantity" required [(ngModel)]="FruitsToUpdate.quantity" />
+                            <!-- <label for="image"><b>Image</b></label>
+                  <input
+                    type="text"
+                    placeholder="Update image"
+                    name="image"
+                    id="image"
+                    required
+                    [(ngModel)]="FruitsToUpdate.image"
+                  /> -->
+                            <hr />
+
+                            <button type="submit" class="registerbtn" (click)="UpdateFruit()">
+                    Update
+                  </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

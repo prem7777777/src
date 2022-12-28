@@ -1,0 +1,81 @@
+<body>
+    <div class="mt-5">
+        <table class="table table-hover">
+            <thead class="thead">
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Image</th>
+
+                    <th colspan="2" style="text-align: center;">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let menu of menuDetails" class="table-info">
+                    <td class="table-info">{{menu.id}}</td>
+                    <td class="table-info">{{menu.title}}</td>
+                    <td class="table-info">{{menu.price}}</td>
+                    <td class="table-info">{{menu.quantity}}</td>
+                    <td><img style="width: 120px;" src="{{menu.image}}" alt=""></td>
+
+
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" (click)="Update(menu)">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="Delete(menu)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/action_page.php">
+                        <div class="container">
+
+                            <h1>Update</h1>
+                            <p>Please fill in the information that needs to be updated</p>
+                            <hr>
+                            <label for="id"><b>Menu ID</b></label>
+                            <input type="text" disabled placeholder="Update Menu ID" name="id" id="id" required
+                                [(ngModel)]=" MenuToUpdate.id">
+                            <label for="title"><b>Title</b></label>
+                            <input type="text" placeholder="Update Title" name="title" id="title" required
+                                [(ngModel)]=" MenuToUpdate.title">
+                            <label for="price"><b>Price</b></label>
+                            <input type="text" placeholder="Update User Last Name" name="price" id="price" required
+                                [(ngModel)]=" MenuToUpdate.price">
+                            <label for="quantity"><b>Quantity</b></label>
+                            <input type="text" placeholder="Update Quantity" name="quantity" id="quantity"
+                                required [(ngModel)]=" MenuToUpdate.quantity">
+                            <label for="image"><b>Image</b></label>
+                            <input type="text" placeholder="Update Image" name="image" id="image" required
+                                [(ngModel)]=" MenuToUpdate.image">
+
+                                <label for="formFile" class="form-label">Default file input example</label>
+                                <input class="form-control bg-light" type="file" id="formFile" [(ngModel)]=" MenuToUpdate.image">
+
+                            <hr>
+
+
+                            <button type="submit" class="registerbtn" (click)="UpdateMenu()">Update</button>
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>

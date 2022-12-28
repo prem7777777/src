@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="menu.component.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <br>
+        <button class="div1" href="#" routerLink="/Login">Logout</button><br><br>
+    </div>
+
+    <div>
+        <button style="
+          float:right;
+          background-color: rgba(218, 88, 23, 0.632);
+          margin-right: 0.5%;
+          width: 100px;
+        ">
+      <a class="nav-link" href="#" routerLink="/Cart"><i class="fa fa-cart-plus"
+          style="font-size: 25px; color: hsla(237, 44%, 36%, 0.944)"></i></a>
+      <div style="font-size: 15px">
+        {{ totalItem }}
+      </div>
+    </button>
+    </div>
+
+    <div class="title">
+        <h4><span>Order Now!</span>Categories</h4>
+    </div>
+    <div class="menu">
+        <div class="single-menu">
+            <img src="../assets/images/Category/vegetables.jpg" alt="Vegetables image" />
+            <div class="menu-content">
+                <button routerLink="/Vegetables">Fresh Vegetables</button>
+                <!-- <p>Our vegetables are fresh....</p> -->
+            </div>
+        </div>
+        <div class="single-menu">
+            <img src="../assets/images/Category/biscuit.jpg" alt="Biscuits and Bakery image" />
+            <div class="menu-content">
+                <button routerLink="/Biscuits">Bakery and Biscuits</button>
+                <!-- <p>All varieties of Biscuit are availabe....</p> -->
+            </div>
+        </div>
+        <div class="single-menu">
+            <img src="../assets/images/Category/fruits.jpg" alt="Fruits image" />
+            <div class="menu-content">
+                <button routerLink="/Fruits">Fruits</button>
+                <!-- <p>We keep only Fresh Fruits....</p> -->
+            </div>
+        </div>
+        <div class="single-menu">
+            <img src="../assets/images/Category/Cold Drink.jpg" alt="Cold drinks image" />
+            <div class="menu-content">
+                <button routerLink="/colddrinks">Cold Drinks</button>
+                <!-- <p>All Cold Drinks are available...</p> -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

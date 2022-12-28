@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="registration.component.css" />
+</head>
+<script>
+    function matchPassword() {
+        var pw1 = document.getElementById("password");
+        var pw2 = document.getElementById("confirmpassword");
+        if (pw1 != pw2) {
+            alert("Passwords did not match");
+        } else {
+            alert("Password created successfully");
+        }
+    }
+</script>
+
+<body>
+    <div class="container">
+        <div class="title">Registration</div>
+        <div class="content">
+            <form [formGroup]="registrationForm">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">First Name</span>
+                        <input type="text" placeholder="Enter Your First Name" id="firstName" formControlName="fname" />
+                        <span class="text-danger" *ngIf="
+                  registrationForm.get('fname').invalid &&
+                  registrationForm.get('fname').touched
+                ">First name is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Last Name</span>
+                        <input type="text" placeholder="Enter Your Last Name" id="lastName" formControlName="lname" />
+                        <span class="text-danger" *ngIf="
+                  registrationForm.get('lname').invalid &&
+                  registrationForm.get('lname').touched
+                ">Last name is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Mobile number</span>
+                        <input type="text" placeholder="Enter Your Mobile Number" id="mobile" formControlName="mobile" />
+                        <span class="text-danger" *ngIf="
+                  registrationForm.get('mobile').invalid &&
+                  registrationForm.get('mobile').touched
+                ">Mobile number is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+                        <input type="text" placeholder="Enter Email" id="email" formControlName="email" />
+                        <span class="text-danger" *ngIf="
+                  registrationForm.get('email').invalid &&
+                  registrationForm.get('email').touched
+                ">Email is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+                        <input type="password" placeholder="Enter Password" id="password" formControlName="password" />
+                        <span class="text-danger" *ngIf="
+                  registrationForm.get('password').invalid &&
+                  registrationForm.get('password').touched
+                ">Password is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+                        <input type="password" placeholder="Confirm Password" id="confirmpassword" formControlName="confirmpassword" />
+                        <span class="text-danger" *ngIf="
+                  registrationForm.get('confirmpassword').invalid &&
+                  registrationForm.get('confirmpassword').touched
+                ">Password does not match</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Address </span>
+                        <input type="text" placeholder="Enter Your Address" id="address" formControlName="address" />
+                        <span class="text-danger" *ngIf="
+                  registrationForm.get('address').invalid &&
+                  registrationForm.get('address').touched
+                ">Address is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">City </span>
+                        <input type="text" placeholder="Enter Your City" id="city" formControlName="city" />
+                        <span class="text-danger" *ngIf="
+                  registrationForm.get('city').invalid &&
+                  registrationForm.get('city').touched
+                ">City is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Pincode </span>
+                        <input type="text" placeholder="Enter Your Pincode" id="pincode" formControlName="pincode" />
+                        <span class="text-danger" *ngIf="
+                  registrationForm.get('pincode').invalid &&
+                  registrationForm.get('pincode').touched
+                ">Pincode is required</span
+              ><br />
+            </div>
+          </div>
+          <div class="gender-details">
+            <input
+              type="radio"
+              id="dot-1"
+              value="Male"
+              formControlName="gender"
+            />
+            <input
+              type="radio"
+              id="dot-2"
+              value="Female"
+              formControlName="gender"
+            />
+
+            <span class="gender-title">Gender</span>
+                        <div class="category">
+                            <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender">Male</span>
+              </label>
+                            <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender">Female</span>
+              </label>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <button style="background: black" type="submit" (click)="save()" [disabled]="registrationForm.invalid" class="btn btn-primary">
+              Register
+            </button>
+
+                        <button style="background: black" type="submit" (click)="handleClear()" class="btn btn-primary">
+              Clear
+            </button>
+                        <button onclick="history.back()">Go Back</button>
+                    </div>
+            </form>
+            </div>
+        </div>
+</body>
+
+</html>

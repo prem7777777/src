@@ -1,0 +1,59 @@
+<body>
+
+    <div class="mt-5">
+        <span class="example-spacer"></span>
+        <button class="btn btn btn-dark" style="margin-left: 1%; margin-top:1%; margin-bottom:1%" onclick="history.back()">Go Back</button>&nbsp;&nbsp;&nbsp;
+        <!-- <button class="btn btn-danger" routerLink="/Admin">Log Out</button> &nbsp;&nbsp;&nbsp;    -->
+        <h1><b>Card Payment</b></h1>
+        <table class="table table-hover">
+            <thead class="thead">
+                <tr>
+                    <th>Card Number</th>
+                    <th>Card Name</th>
+                    <th>Mobile No.</th>
+                    <th>Expiration Month</th>
+                    <th>Expiration Year</th>
+                    <!-- <th>CVV</th> -->
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let pay of paymentDetails" class="table-info">
+                    <td class="table-info">{{ pay.card_Number }}</td>
+                    <td class="table-info">{{ pay.card_Name }}</td>
+                    <td class="table-info">{{ pay.mobile }}</td>
+                    <td class="table-info">{{ pay.ex_Month }}</td>
+                    <td class="table-info">{{ pay.ex_Year }}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h1><b>COD Payment</b></h1>
+    <div class="mt-5">
+        <table class="table table-hover">
+            <thead class="thead">
+                <tr>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Landmark</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Pincode</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let cod of codDetails" class="table-info">
+                    <td class="table-info">{{ cod.name }}</td>
+                    <td class="table-info">{{ cod.mobile }}</td>
+                    <td class="table-info">{{ cod.email }}</td>
+                    <td class="table-info">{{ cod.landmark }}</td>
+                    <td class="table-info">{{ cod.street }}</td>
+                    <td class="table-info">{{ cod.city }}</td>
+                    <td class="table-info">{{ cod.state }}</td>
+                    <td class="table-info">{{ cod.pincode }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

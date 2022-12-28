@@ -1,0 +1,31 @@
+<body>
+    <div class="container-fluid">
+        <table class="table table-striped">
+            <thead>
+                <th>Id</th>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total Amount</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cartItemList">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.price * item.quantity }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan-5><b> Total Price</b></td>
+                    <td>{{ totalprice }}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <button onclick=" history.back() " class="backbtn ">Go Back</button>
+        <button href="# " (click)="logout() " class="btn btn-dark ">Logout</button>
+        <!-- <button  href="# " routerLink="/Login " class="btn btn-primary ">Logout</button>    -->
+    </div>
+</body>

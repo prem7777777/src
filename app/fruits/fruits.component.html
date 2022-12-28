@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="fruits.component.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <button style="
+      float:right;
+      background-color: rgba(218, 88, 23, 0.632);
+      margin-right: 0.5%;
+      width: 100px;
+      margin-top: 10px;
+    ">
+        <a class="nav-link" href="#" routerLink="/Cart"
+          ><i
+            class="fa fa-cart-plus"
+            style="font-size: 70px; color: hsl(0, 0%, 3%)"
+          ></i
+        ></a>
+        <div style="font-size: 20px">
+          {{ totalItem }}
+        </div>
+      </button>
+    </div>
+
+    <!-- <button  class="btn " routerLink="/Login">Log Out</button> -->
+
+    <div class="title">
+        <h4><span>Fresh Fruits for good health</span></h4>
+    </div>
+
+    <div class="row">
+        <div class="menu" *ngFor="let fruit of fruits">
+
+
+            <div class="column">
+                <div class="menu-content">
+                    <h4>{{ fruit.title }}</h4>
+                </div>
+            </div>
+
+            <div class="col align-self-center">
+                <h4>Rs.{{ fruit.price }}</h4>
+                <b>Quantity: {{ fruit.quantity }}</b>
+
+            </div>
+
+            <div class="column" style="margin-top: 45px">
+                <b></b>
+
+                <button id="button" type="button" class="btn btn-danger" (click)="minus(fruit)">
+            <i class="fa fa-minus"></i>
+          </button>
+                <span>{{ fruit.quantity }}</span>
+                <button id="button" type="button" class="btn btn-danger" (click)="plus(fruit)">
+            <i class="fa fa-plus"></i>
+          </button>
+            </div>
+
+            <button id="button1" class="btn btn-danger" (click)="addtocart(fruit)">
+          Add to Cart
+        </button>
+            <button id="button2" class="btn btn-danger" (click)="updatefruit()">
+          Verify
+        </button>
+        </div>
+    </div>
+    <button style="margin-left:10px; background-color: gray; color: aliceblue; width:5% " onclick="history.back()">Go Back</button>
+</body>
+
+</html>
